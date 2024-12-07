@@ -63,3 +63,5 @@ print('Délka jména', delka_jmena)
 print(cele_jmeno_1)
 print(cele_jmeno)
 print(cele_jmeno_1)
+
+
