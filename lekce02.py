@@ -43,3 +43,16 @@ else:
     kategorie = 'podvýživa'
 
 print(jmeno_01,"tvé BMI je", BMI,",což spadá do kategorie",kategorie, ".")
+
+zamestnanci = [
+   'František','Anna',
+   'Jakub','Klára'
+   ]
+print('Zaměstnanci na začátku:',zamestnanci)
+zamestnanci_a = zamestnanci.copy()
+zamestnanci_a.append('Bruno')
+zamestnanci_a.append('Anežka')
+print('Nová jména přidána: ', zamestnanci_a)
+zamestnanci_b = zamestnanci.copy()
+zamestnanci_b.insert(1, 'Bruno')
+print('Nová jména vložená:',zamestnanci_b)
