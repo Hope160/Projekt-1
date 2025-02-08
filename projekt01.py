@@ -4,6 +4,7 @@ projekt01.py: první projekt do Engeto Online Python Akademie
 author: Hana Syblíková
 email: syblikovaha@seznam.cz
 """
+
 # začátek textového editoru
 print(40 * "*")
 print(
@@ -111,22 +112,24 @@ try:
             print("Neplatná volba. Program bude ukončen.")
             exit()
         print(40 * "=")
-        print(f"\nVybrali jste text číslo: \n{volba}")
+        print(f"\nVybrali jste text číslo: {volba}")
 except ValueError:
         print("Neplatný vstup. Zadejte prosím číslo mezi 1 a 3.")
         exit()  # Ukončí program
 
+print(40 * "=")
 #vypsání vybraného textu se kterým se bude dál pracovat
 if volba == 1:
-    print("Text Vašeho výběru zní:", Text_1)
+    print("\nText Vašeho výběru zní:\n", Text_1)
 if volba == 2:
-    print("Text Vašeho výběru zní:", Text_2)
+    print("\nText Vašeho výběru zní:\n", Text_2)
 if volba == 3:
-    print("Text Vašeho výběru zní:", Text_2)
+    print("\nText Vašeho výběru zní:\n", Text_2)
             
 #Samotná analýza vybraného textu
 text = TEXTS[volba - 1]
 
+import string  
 # seznam hodnot z úkolu
 pocet_slov = len(text.split())
 slova_s_velkym_pismenem = sum(1 for word in text.split() if word.istitle())
@@ -138,15 +141,15 @@ soucet_cisel = sum(int(word) for word in text.split() if word.isdigit())
 
 # Výstupy
 print(40*'-')
-print(f"V vybraném textu je {pocet_slov} slov.")
+print(f"Ve vybraném textu je {pocet_slov} slov.")
 print(40*'-')
-print(f"V vybraném textu je {slova_s_velkym_pismenem} slov s velkým písmenem.")
+print(f"Ve vybraném textu je {slova_s_velkym_pismenem} slov s velkým písmenem.")
 print(40*'-')
-print(f"V vybraném textu je {velka_slovna} slov napsaných velkými písmeny.")
+print(f"Ve vybraném textu je {velka_slovna} slov napsaných velkými písmeny.")
 print(40*'-')
-print(f"V vybraném textu je {mala_slovna} slov napsaných malými písmeny.")
+print(f"Ve vybraném textu je {mala_slovna} slov napsaných malými písmeny.")
 print(40*'-')
-print(f"V vybraném textu je {ciselne_retezce} číselných řetězců.")
+print(f"Ve vybraném textu je {ciselne_retezce} číselných řetězců.")
 print(40*'-')
 print(f"Soucet všech čísel je {soucet_cisel}")
 print(40*'*')
@@ -155,6 +158,8 @@ print(40 * "=")
 
 
 #zde jsem skončila a je nutno dál kontrolovat a propojovat
+#pozor zkontrolovat ukládání na GIT nebyl vidět přenos
+
 print(f" {'LEN':<3}|{'OCCURRENCES':^17}|{'NR.':>4}")
 # seznamu délky každého slova
 delka_slov = [len(word.strip(string.punctuation)) for word in text.split()]
