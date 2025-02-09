@@ -4,17 +4,14 @@ projekt01.py: první projekt do Engeto Online Python Akademie
 author: Hana Syblíková
 email: syblikovaha@seznam.cz
 """
-
-# začátek textového editoru
+# začátek kódu
 print(40 * "*")
 print(
-"""Vítej v textovém editoru od Hanky :-)
+"""Vítej v textovém analyzátoru od Hanky :-)
 ========================================
-Níže zasej své uživatelské jméno a heslo"""
+Níže zadej své uživatelské jméno a heslo"""
 )
 print(40 * "*")
-
-
 # uživatelé a jejich hesla ze zadání
 registrovani_uzivatele = {
     "bob": "123",
@@ -22,7 +19,6 @@ registrovani_uzivatele = {
     "mike": "password123",
     "liz": "pass123"
 }
-
 #výzva k zadání jména a hesla + ověření shody
 def prihlaseni():
     
@@ -36,10 +32,7 @@ def prihlaseni():
     else:
         print("Neplatné přihlašovací údaje. Program bude ukončen.")
         exit()  
-
 prihlaseni()
-
-#oddělení přihlášení od výběru textu
 print(40 * "=")
 
 TEXTS = ['''
@@ -69,7 +62,6 @@ other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
-
 Text_1 = ['''Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
@@ -78,7 +70,6 @@ to an elevation of more than 7500 feet
 above sea level. The butte is located just
 north of US 30N and the Union Pacific Railroad,
 which traverse the valley. ''']
-
 Text_2 = ['''At the base of Fossil Butte are the bright
 red, purple, yellow and gray beds of the Wasatch
 Formation. Eroded portions of these horizontal
@@ -87,7 +78,6 @@ and steepen abruptly. Overlying them and extending
 to the top of the butte are the much steeper
 buff-to-white beds of the Green River Formation,
 which are about 300 feet thick.''']
-
 Text_3 = ['''The monument contains 8198 acres and protects
 a portion of the largest deposit of freshwater fish
 fossils in the world. The richest fossil fish deposits
@@ -98,12 +88,8 @@ other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.''']
 
-#ukázky textů uživateli ze kterých může vybírat
-def vyber_text():
-    print("\nVyberte číslo textu, který chcete analyzovat:")
-    print(Text_1)
-    print(Text_2)
-    print(Text_3)
+print("\nUkázky textů, které můžete analyzovat:", "\n" "\n1. ",Text_1, "\n2. ",Text_2,"\n3. ",Text_3 )
+print(40 * "=")
 
 #volba textu uživatelem
 try:
@@ -125,10 +111,10 @@ if volba == 2:
     print("\nText Vašeho výběru zní:\n", Text_2)
 if volba == 3:
     print("\nText Vašeho výběru zní:\n", Text_2)
+print(40 * "=")
             
 #Samotná analýza vybraného textu
 text = TEXTS[volba - 1]
-
 import string  
 # seznam hodnot z úkolu
 pocet_slov = len(text.split())
@@ -139,7 +125,7 @@ mala_slovna = sum(1 for word in text.split() if word.islower())
 ciselne_retezce = sum(1 for word in text.split() if word.isdigit())
 soucet_cisel = sum(int(word) for word in text.split() if word.isdigit())
 
-# Výstupy
+print("\nAnalýza Vášeho textu:") # Výstupy
 print(40*'-')
 print(f"Ve vybraném textu je {pocet_slov} slov.")
 print(40*'-')
@@ -152,21 +138,13 @@ print(40*'-')
 print(f"Ve vybraném textu je {ciselne_retezce} číselných řetězců.")
 print(40*'-')
 print(f"Soucet všech čísel je {soucet_cisel}")
-print(40*'*')
-# poslední část je graf
+print(27*'*')
 print(40 * "=")
 
-
-#zde jsem skončila a je nutno dál kontrolovat a propojovat
-#pozor zkontrolovat ukládání na GIT nebyl vidět přenos
-
-print(f" {'LEN':<3}|{'OCCURRENCES':^17}|{'NR.':>4}")
-# seznamu délky každého slova
-delka_slov = [len(word.strip(string.punctuation)) for word in text.split()]
-# Vytvoření množiny délek slov
-mnozina_delka = set(delka_slov)
-# frekvence jednotlivých délek slov
-frekvence_delka = []
+print(f" {'LEN':<4}|{'OCCURRENCES ':^19}|{' NR.':>3}")
+delka_slov = [len (word.strip(string.punctuation)) for word in text.split()] # seznamu délky každého slova
+mnozina_delka = set(delka_slov) # Vytvoření množiny délek slov
+frekvence_delka = [] # frekvence jednotlivých délek slov
 for delka in mnozina_delka:
     frekvence_delka.append(delka_slov.count(delka))
 nejvyssi_delka = max(frekvence_delka)
@@ -175,6 +153,7 @@ star = '*'
 space = ' '
 for delka in mnozina_delka:
     pocet_space = nejvyssi_delka - delka_slov.count(delka)
-    print(f" {delka} | {star * delka_slov.count(delka)} {space * pocet_space} | {delka_slov.count(delka)}")
+    print(f" {delka:<4}| {star * delka_slov.count(delka):<18}| {delka_slov.count(delka):>3}")
 print(40 * "=")
-
+print("Děkujeme za využití textového analyzátoru od Hanky :-)")
+print(40 *'*')
