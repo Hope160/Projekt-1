@@ -110,7 +110,7 @@ if volba == 1:
 if volba == 2:
     print("\nText Vašeho výběru zní:\n", Text_2)
 if volba == 3:
-    print("\nText Vašeho výběru zní:\n", Text_2)
+    print("\nText Vašeho výběru zní:\n", Text_3)
 print(40 * "=")
             
 #Samotná analýza vybraného textu
